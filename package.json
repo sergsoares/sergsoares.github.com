@@ -14,7 +14,8 @@
     "bluebird": "^3.5.1",
     "node-dir": "^0.1.17",
     "root-path": "^0.2.1",
-    "tape": "^4.9.1"
+    "tape": "^4.9.1",
+    "tape-promise": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

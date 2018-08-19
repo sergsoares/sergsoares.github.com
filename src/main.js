@@ -1,6 +1,11 @@
-// import getFiles from 'getFiles'
 import root from 'root-path'
+import getFiles from './getFiles'
 
-// getFiles(root(), {})
+function execute() {
+    // getFiles(root(), {})
+    // console.log(root())
+    return "Build with success!"
+}
 
-console.log(root())
+export default { execute };
+
