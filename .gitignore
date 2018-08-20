@@ -607,5 +607,7 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
+# Dist location
+dist/
 
 # End of https://www.gitignore.io/api/node,macos,linux,windows,phpstorm,jetbrains,visualstudio,phpcodesniffer,visualstudiocode
