@@ -1,8 +1,9 @@
 import tape from 'tape'
-import BluebirdPromise from 'bluebird'
-import getFiles from "../src/getFiles";
 import _test from 'tape-promise'
 const test = _test(tape)
+
+import BluebirdPromise from 'bluebird'
+import getFiles from "../src/getFiles";
 import root from "root-path";
 const test_fixture_path = root() + "/tests/fixtures"
 
