@@ -4,7 +4,8 @@ import BluebirdPromise from 'bluebird'
 
 jest.mock('../getFiles')
 
-getFiles.mockImplementation(() => BluebirdPromise.resolve([ '---\ntitle: Just do it \ndescription: Nothing to see here\n---\n\nThis is some text about some stuff that happened sometime ago\n' ]));
+const mockArray =  [ '---\ntitle: Just do it \ndescription: Nothing to see here\npath: the-initial.html\n---\n\nThis is some text about some stuff that happened sometime ago\n' ]
+getFiles.mockImplementation(() => BluebirdPromise.resolve(mockArray));
 
 test('Main JS finish with Success', () => {
     return main.execute().then((received) => {
