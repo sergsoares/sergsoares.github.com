@@ -8,8 +8,8 @@ async function execute() {
     return await getFiles(root(), {})
         .map(YamlProcessor)
         .map(convertMarkdown)
-        .map(writeHtml)
         // .map(value => { console.log(value) })
+        .map(writeHtml)
         .then(() => {
             return 'Build with success!'
         })
