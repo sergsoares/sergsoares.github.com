@@ -4,16 +4,19 @@
   "description": "A simple code to generate my own blog =]",
   "main": "index.js",
   "scripts": {
-    "test": "babel-tape-runner \"tests/**/*.js\" | colortape",
-    "jest": "jest --watch",
+    "test": "jest --watch",
     "start": "babel-node src/main.js --presets es2015,stage-2"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^23.3.1",
     "babel-tape-runner": "^2.0.1",
     "bluebird": "^3.5.1",
     "colortape": "^0.1.2",
+    "commonmark": "^0.28.1",
+    "front-matter": "^2.3.0",
+    "markdown-it": "^8.4.2",
     "node-dir": "^0.1.17",
     "root-path": "^0.2.1",
     "tape": "^4.9.1",

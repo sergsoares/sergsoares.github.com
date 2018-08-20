@@ -1,11 +1,13 @@
 import root from 'root-path'
 import getFiles from './getFiles'
+import YamlProcessor from "./YamlProcessor";
 
-function execute() {
-    // getFiles(root(), {})
-    // console.log(root())
-    return "Build with success!"
+async function execute() {
+    await getFiles(root(), {})
+        .map(YamlProcessor)
+
+    return 'Build with success!'
 }
 
-export default { execute };
+export default { execute }
 
