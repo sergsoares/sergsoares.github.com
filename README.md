@@ -13,3 +13,11 @@ To develop start using [Tape](https://github.com/substack/tape), but after a lot
 ```
 $ npm run test 
 ```
+
+Extremely inspired on, I took advantage to trainning TDD in JS and start a project from zero:
+
+[Let's Code It: Static Site Generator
+](https://sequoia.makes.software/lets-code-it-static-site-generator/)
+
+[Github Repository - sequoia.github.com](https://github.com/Sequoia/sequoia.github.com)
+
