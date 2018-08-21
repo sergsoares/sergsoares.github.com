@@ -9,7 +9,7 @@ const DEFAULT_POST = root() + '/posts'
 // TODO:
 
 async function execute() { // TODO: Receive an Object param to config.
-    return await getFiles(DEFAULT_POST, {})
+    return await getFiles(DEFAULT_POST, {}) //TODO: Handle empty files
         .map(YamlProcessor)
         .map(convertMarkdown)
         // .map(flattenPost)

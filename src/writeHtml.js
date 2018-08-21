@@ -7,5 +7,5 @@ export default function (post) {
     //TODO: Decouple resolve path to receive path in param.
     const filePath = getPathToDist(post.attributes.path) // TODO: remove couple with post Structure
 
-    return fs.writeFileAsync(filePath, post.body);
+    return fs.writeFileAsync(filePath, post.body).catch(e => { console.log(e)});
 }
