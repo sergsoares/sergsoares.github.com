@@ -4,7 +4,8 @@ const fs = BluebirdPromise.promisifyAll(fileSystem);
 import getPathToDist from './getPathToDist'
 
 export default function (post) {
-    const filePath = getPathToDist(post.attributes.path)
+    //TODO: Decouple resolve path to receive path in param.
+    const filePath = getPathToDist(post.attributes.path) // TODO: remove couple with post Structure
 
     return fs.writeFileAsync(filePath, post.body);
 }

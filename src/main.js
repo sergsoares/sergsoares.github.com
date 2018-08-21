@@ -6,12 +6,14 @@ import flattenPost from "./flattenPost";
 import root from 'root-path'
 const DEFAULT_POST = root() + '/posts'
 
-async function execute() {
+// TODO:
+
+async function execute() { // TODO: Receive an Object param to config.
     return await getFiles(DEFAULT_POST, {})
         .map(YamlProcessor)
         .map(convertMarkdown)
         // .map(flattenPost)
-        .map(writeHtml)
+        .map(writeHtml) //TODO: Externalize path to save output(Can use an env)
         .then(() => {
             return 'Build with success!'
         })
