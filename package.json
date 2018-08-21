@@ -19,6 +19,7 @@
     "fs": "0.0.1-security",
     "markdown-it": "^8.4.2",
     "node-dir": "^0.1.17",
+    "pug": "^2.0.3",
     "root-path": "^0.2.1",
     "tape": "^4.9.1",
     "tape-promise": "^3.0.0"
