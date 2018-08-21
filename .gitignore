@@ -610,4 +610,7 @@ ASALocalRun/
 # Dist location
 dist/
 
+# Flow location
+lib/
+
 # End of https://www.gitignore.io/api/node,macos,linux,windows,phpstorm,jetbrains,visualstudio,phpcodesniffer,visualstudiocode
