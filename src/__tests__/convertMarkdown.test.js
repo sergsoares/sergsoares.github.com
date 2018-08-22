@@ -5,15 +5,14 @@ test('convertMarkdown need be a function', function () {
 })
 
 test('convertMarkdown call need return object', function () {
-    const text = { body: 'You will like those projects!'}
-    expect(typeof convertMarkdown(text)).toEqual('object')
+    const text = 'You will like those projects!'
+    expect(typeof convertMarkdown(text)).toEqual('string')
 })
 
 test('convertMarkdown call return correct structure', function () {
-    const text = { body: 'You will like those projects!'}
-
-    const expected = { body: "<p>You will like those projects!</p>\n"}
-    const received = convertMarkdown(text)
+    const param = 'You will like those projects!'
+    const expected =  "<p>You will like those projects!</p>\n"
+    const received = convertMarkdown(param)
 
     expect(received).toEqual(expected)
 })

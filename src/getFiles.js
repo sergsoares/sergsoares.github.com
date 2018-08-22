@@ -1,7 +1,11 @@
+// @flow
+
 import BluebirdPromise from 'bluebird'
 import { readFiles } from 'node-dir'
+import Post from './Post'
 
-export default function getFiles(root, options) {
+//TODO: return Array<string> with File
+export default function getFiles(root: string, options: any) {
     let contents = []
     return new BluebirdPromise((resolve, reject) => {
         readFiles(root, options,
@@ -12,6 +16,7 @@ export default function getFiles(root, options) {
             },
             function(err, filenames) {
                 if (err) { reject(err) }
+                // let posts: Array<Post> = contents.map( (content) => new Post(content))
                 resolve(contents)
             })
     })

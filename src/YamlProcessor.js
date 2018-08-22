@@ -1,3 +1,10 @@
-import fm from "front-matter";
+// @flow
 
-export default (content) => { return fm(content) }
+import fm from "front-matter";
+import Post from './Post'
+
+function YamlProcessor(post: string): any{
+    return fm(post)
+}
+
+export default YamlProcessor

@@ -18,7 +18,7 @@ const mockedConverted = {
     frontmatter: 'title: Just do it \ndescription: Nothing to see here\npath: the-initial.html'
 }
 
-
+// Learn: How mock in Jest
 jest.mock('../getPathToDist')
 const mockDistDirectory = root() + '/src/__tests__/dist/test'
 getPathToDist.mockImplementation(() => mockDistDirectory)
@@ -31,14 +31,14 @@ test('WriteHtml need be a function', function () {
 })
 
 test('writeHtml should return object', function () {
-    const received = typeof writeHtml(mockedConverted)
+    const received = typeof writeHtml(mockDistDirectory, mockedConverted.body)
     const expected = 'object'
 
     expect(received).toEqual(expected)
 })
 
 test('writeHtml should write a file to system', function () {
-    writeHtml(mockedConverted)
+    writeHtml(mockDistDirectory, mockedConverted.body)
 
     return fs.readFileAsync(mockDistDirectory, (err, data) => {
         if (err) throw err;
