@@ -9,9 +9,15 @@ To Build files inside /posts
 $ npm run build
 ```
 
-To develop start using [Tape](https://github.com/substack/tape), but after a lot of packages installed use [Jest](https://github.com/facebook/jest)
+To develop i start using [Tape](https://github.com/substack/tape), but after a lot of packages 
+need be installed to work change to [Jest](https://github.com/facebook/jest).
 ```
 $ npm run test 
+```
+
+To test templates inside project can be used NPM scripts to live-reload and build.
+```
+$ npm run dev
 ```
 
 ### Learn Achievements
