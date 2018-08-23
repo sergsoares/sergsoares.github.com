@@ -3,36 +3,26 @@
 import getFiles from './getFiles'
 import YamlProcessor from "./YamlProcessor"
 import convertMarkdown from "./convertMarkdown"
+import renderBasedOnTemplate from './renderBasedOnTemplate'
 import writeFile from "./writeHtml";
-import flattenPost from "./flattenPost";
 import root from 'root-path'
-const DEFAULT_POST = root() + '/posts'
-import Post from './Post'
 import getPathToDist from './getPathToDist'
+
+const POSTS_PATH : string = root() + '/posts'
+const TEMPLATE_PATH: string = root() + '/templates/post.pug' //TODO: Get post from config
 
 export default { execute }
 
 async function execute() { // TODO: Receive an Object param to config.
-    return await getFiles(DEFAULT_POST, {}) //TODO: Handle empty files
+    return await getFiles(POSTS_PATH, {}) //TODO: Handle empty files
         .map(yamlProcessor)
         .map(converPostToMarkdown)
-        .map(writeHtmlToFile)
-        // .map(parseToPost)
-        // .map(value => { console.log(typeof value); return value })
-        // .map(YamlProcessor)
-        // .map(convertMarkdown)
-        // .map(flattenPost)
-        // .map(templateRender)
-        // .map(writeHtml) //TODO: Externalize path to save output(Can use an env)
+        .map(renderPostFromTemplate)
+        .map(writeHtmlToFile)//TODO: Externalize path to save output(Can use an env)
         .then(() => {
             return 'Build with success!'
         })
 }
-
-//TODO: Next release with post
-// function parseToPost(content: string): Post {
-//     return new Post(content)
-// }
 
 function yamlProcessor(content: any) : any {
     let post = {}
@@ -46,6 +36,11 @@ function yamlProcessor(content: any) : any {
 
 function converPostToMarkdown(post: any): any {
     post.body = convertMarkdown(post.body);
+    return post
+}
+
+function renderPostFromTemplate(post: any) {
+    post.body = renderBasedOnTemplate(TEMPLATE_PATH, post)
     return post
 }
 
