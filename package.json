@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watch",
     "flow" : "flow",
-    "build": "babel-node lib/build.js "
+    "build": "babel-node src/build.js "
   },
   "author": "",
   "license": "ISC",
