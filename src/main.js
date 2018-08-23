@@ -10,6 +10,7 @@ import getPathToDist from './getPathToDist'
 
 const POSTS_PATH : string = root() + '/posts'
 const TEMPLATE_PATH: string = root() + '/templates/post.pug' //TODO: Get post from config
+const INDEX_PATH: string = root() + '/templates/index.pug' //TODO: Get post from config
 
 export default { execute }
 
@@ -19,6 +20,7 @@ async function execute() { // TODO: Receive an Object param to config.
         .map(converPostToMarkdown)
         .map(renderPostFromTemplate)
         .map(writeHtmlToFile)//TODO: Externalize path to save output(Can use an env)
+        .then(renderIndexPage)
         .then(() => {
             return 'Build with success!'
         })
@@ -39,6 +41,13 @@ function converPostToMarkdown(post: any): any {
     return post
 }
 
+function renderIndexPage(posts: any) {
+    let indexPage = { path : 'index.html' , body: ''}
+    indexPage.body= renderBasedOnTemplate(INDEX_PATH, indexPage.body)
+    const filePath = getPathToDist(indexPage.path)
+    writeFile(filePath, indexPage.body)
+}
+
 function renderPostFromTemplate(post: any) {
     post.body = renderBasedOnTemplate(TEMPLATE_PATH, post)
     return post
@@ -47,7 +56,8 @@ function renderPostFromTemplate(post: any) {
 function writeHtmlToFile(post: any) {
     const path = post.path
     const filePath = getPathToDist(path)
-    return writeFile(filePath, post.body)
+    writeFile(filePath, post.body)
+    return post
 }
 
 
