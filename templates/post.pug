@@ -1,9 +1,8 @@
 //- post.pug
 doctype html
 html(lang='en')
-  head
-    title= title
-    meta(name='description', content=description)
+  include includes/header.pug
   body
     h1= title
     | !{body}
+    include includes/footer.pug

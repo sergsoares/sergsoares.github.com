@@ -28,3 +28,5 @@ Extremely inspired on, I took advantage to trainning TDD in JS and start a proje
 
 [Github Repository - sequoia.github.com](https://github.com/Sequoia/sequoia.github.com)
 
+[Npm Script to Live Reload](https://gist.github.com/ShMcK/4a607a13090551efdfac8512bd07320a)
+
