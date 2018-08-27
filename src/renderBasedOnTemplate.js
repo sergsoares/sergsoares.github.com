@@ -6,4 +6,3 @@ export default function renderBasedOnTemplate(templatePath: string = '', post: a
     const postRenderer = pug.compileFile(templatePath)
     return postRenderer(post)
 }
-
