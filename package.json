@@ -4,6 +4,7 @@
   "description": "A simple code to generate my own blog =]",
   "main": "index.js",
   "scripts": {
+    "ci": "jest",
     "test": "jest --watch",
     "flow": "flow",
     "gulp": "gulp",
