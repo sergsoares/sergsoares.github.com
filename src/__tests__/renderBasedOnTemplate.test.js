@@ -22,34 +22,3 @@ test('Should renderBasedOnTemplate return post with content string assigned', fu
 
     expect(received).toEqual(expected)
 })
-
-test('Should renderBasedOnTemplate return post with content string assigned', function () {
-    const received = renderBasedOnTemplate(templatePath, mockPost)
-    const expected = `<!DOCTYPE html><html lang=\"en\"><head><title>Just do it</title><meta name=\"description\" content=\"Nothing to see here\"></head><body><h1>Just do it</h1><h1>An h1 header</h1>
-<p>Paragraphs are separated by a blank line.</p>
-<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists
-look like:</p>
-<ul>
-<li>this one</li>
-<li>that one</li>
-<li>the other one</li>
-</ul>
-<p>Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.</p>
-<blockquote>
-<p>Block quotes are
-written like so.</p>
-<p>They can span multiple paragraphs,
-if you like.</p>
-</blockquote>
-<p>This is some text about some stuff that happened sometime ago</p>
-</body></html>`
-
-    expect(received).toEqual(expected)
-})
-
-
-
-
-
-

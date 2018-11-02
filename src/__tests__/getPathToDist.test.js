@@ -16,7 +16,7 @@ test('getPathToDist need return a string', function () {
 })
 
 test('getPathToDist need return path that contains file', function () {
-    const expected = '/dist/change.html'
+    const expected = '/dist/index.html'
     const received = getPathToDist('index.html').includes(expected)
 
     expect(received).toEqual(true)
