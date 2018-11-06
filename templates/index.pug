@@ -1,10 +1,10 @@
-//- post.pug
+//- index.pug
 doctype html
 html(lang='en')
   body
     h1= text
-    each val, index in [{a: '2'}]
-      a.foo_link(href='about.html', target='_blank')= val.a
+     // each val, index in [{a: '2'}]
+     //   a.foo_link(href='about.html', target='_blank')= val.a
 
     | !{body}
     include includes/footer.pug

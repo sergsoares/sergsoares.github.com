@@ -3,10 +3,11 @@
 import getFiles from './getFiles'
 import YamlProcessor from "./YamlProcessor"
 import convertMarkdown from "./convertMarkdown"
-import renderBasedOnTemplate from './renderBasedOnTemplate'
+// import renderBasedOnTemplate from './renderBasedOnTemplate'
 import writeFile from "./writeHtml";
 import root from 'root-path'
 import getPathToDist from './getPathToDist'
+import handlebars from 'handlebars'
 
 const POSTS_PATH : string = root() + '/posts'
 const TEMPLATE_PATH: string = root() + '/templates/post.pug' //TODO: Get post from config
@@ -42,14 +43,25 @@ function converPostToMarkdown(post: any): any {
 }
 
 function renderIndexPage(posts: any) {
-    let indexPage = { path : 'index.html' , body: ''}
-    indexPage.body= renderBasedOnTemplate(INDEX_PATH, indexPage.body)
+    const arrayLinks = posts.map(post => `<a href="${post.path}"> ${post.title} </a>`)
+    const links = arrayLinks.join(' ')
+
+    let indexPage = { path : 'index.html' , body: links}
+
+    const templateString = `<div className="entry">
+        <div className="body">
+            <a href="{{path}}"> {{title}} </a>
+        </div>
+    </div>`
+
+    indexPage.body= renderBasedOnTemplate(templateString, posts[0])
     const filePath = getPathToDist(indexPage.path)
     writeFile(filePath, indexPage.body)
 }
 
 function renderPostFromTemplate(post: any) {
-    post.body = renderBasedOnTemplate(TEMPLATE_PATH, post)
+    const postTemplate = `<html> <head> </head> <body> {{ body }}</body> </html>`
+    post.body = renderBasedOnTemplate(postTemplate, post)
     return post
 }
 
@@ -60,4 +72,8 @@ function writeHtmlToFile(post: any) {
     return post
 }
 
+function renderBasedOnTemplate(templateString: string = '', post: any): any {
+    const template = handlebars.compile(templateString);
+    return template(post)
+}
 
